@@ -1,68 +1,41 @@
-package calculadorajv;
+package br.com.flavio.sobreira.calc;
 
-import javax.swing.JOptionPane;;
+import javax.swing.JOptionPane;
 
 public class Calculadora {
-	
-	public static void main (String args[]) {
-		
-		String v1;
-		String v2;
-		String opcao;
-		double resultadofinal;
-		String msg;
-		
-		v1 = JOptionPane.showInputDialog("Informe o primeiro valor: ");
-		
-		opcao = JOptionPane.showInputDialog("Informe a operaÁ„o: \n1 - Soma;"
-				+ " \n2 - SubtraÁ„o; "
-				+ "\n3 - MultiplicaÁ„o "
-				+ "\n4 - Divis„o.");
-		
-		int opc;
-		opc = Integer.parseInt(opcao);
-		
-		v2 = JOptionPane.showInputDialog("Informe o segundo valor: ");
-		double valor1 = Double.parseDouble(v1);
-		double valor2 = Double.parseDouble(v2);
-		
 
-		
-		if(opc == 1){
+    public static void main(String args[]) {
 
-			resultadofinal = valor1 + valor2;
-			
-			msg = "O Resultado Final È: "+resultadofinal;
-			JOptionPane.showMessageDialog(null, msg);
-			
-		}
-		
-		if(opc == 2){
-			
-			resultadofinal = valor1 - valor2;
-	
-			msg = "O resultado Final È: "+resultadofinal;
-			JOptionPane.showMessageDialog(null, msg);
-			
-		}
-		
-		if(opc == 3){
-			
-			resultadofinal = valor1 * valor2;
+        String v1;
+        String v2;
+        String opcao;
+        double resultadofinal = 0D;
+        String msg;
 
-			msg = "O Resultado Final È: "+resultadofinal;
-			JOptionPane.showMessageDialog(null, msg);
-			
-		}
-		
-		if(opc == 4){
-			
-			resultadofinal = valor1 / valor2;
+        opcao = JOptionPane.showInputDialog(
+                "Informe a opera√ß√£o: \n1 - Soma;" + " \n2 - Subtra√ß√£o; "
+                        + "\n3 - Multiplica√ß√£o " + "\n4 - Divis√£o.");
 
-			msg = "O Resultado Final …: "+resultadofinal;
-			JOptionPane.showMessageDialog(null, msg);
-		}
-		
-	}
+        int opc;
+        opc = Integer.parseInt(opcao);
+        v1 = JOptionPane.showInputDialog("Informe o primeiro valor: ");
+        v2 = JOptionPane.showInputDialog("Informe o segundo valor: ");
+        final double valor1 = Double.parseDouble(v1);
+        final double valor2 = Double.parseDouble(v2);
+
+        if (opc == 1) {
+            resultadofinal = valor1 + valor2;
+        } else if (opc == 2) {
+            resultadofinal = valor1 - valor2;
+        } else if (opc == 3) {
+            resultadofinal = valor1 * valor2;
+        } else if (opc == 4) {
+            resultadofinal = valor1 / valor2;
+        }
+
+        msg = "O Resultado Final √©: " + resultadofinal;
+        JOptionPane.showMessageDialog(null, msg);
+
+    }
 
 }
