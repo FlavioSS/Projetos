@@ -1,4 +1,4 @@
-package br.com.flavio.sobreira.calc;
+package calculadorajv;
 
 import javax.swing.JOptionPane;
 
@@ -37,5 +37,31 @@ public class Calculadora {
         JOptionPane.showMessageDialog(null, msg);
 
     }
+    
+
+
+    	public double add(double valor1, double valor2) {
+
+    		return valor1 + valor2;
+
+    	}
+
+    	public double sub(double valor1, double valor2) {
+
+    		return valor1 - valor2;
+
+    	}
+
+    	public double multi(double valor1, double valor2) {
+
+    		return valor1 * valor2;
+
+    	}
+
+    	public double div(double valor1, double valor2) {
+
+    		return valor1 / valor2;
+
+    	}
 
 }
