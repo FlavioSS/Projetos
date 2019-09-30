@@ -6,8 +6,8 @@ public class Calculadora {
 
     public static void main(String args[]) {
 
-        String valor1;
-        String valor2;
+        String v1;
+        String v2;
         String opcao;
         double resultadofinal = 0D;
         String msg;
@@ -18,8 +18,8 @@ public class Calculadora {
 
         int opc;
         opc = Integer.parseInt(opcao);
-        valor1 = JOptionPane.showInputDialog("Informe o primeiro valor: ");
-        valor2 = JOptionPane.showInputDialog("Informe o segundo valor: ");
+        v1 = JOptionPane.showInputDialog("Informe o primeiro valor: ");
+        v2 = JOptionPane.showInputDialog("Informe o segundo valor: ");
         final double valor1 = Double.parseDouble(v1);
         final double valor2 = Double.parseDouble(v2);
 
