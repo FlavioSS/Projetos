@@ -44,8 +44,7 @@ public class Carro {
 	}
 	
 	public void acelerar(int velocidade) {
-		/*Pra finalizar, vamos melhorar a lógica. Só pode ser acelerado se estiver ligado!*/
-		/*Se o carro não estiver ligado, ele só vai passar a mensagem de desligado*/
+
 		if (this.ligado == true){
 			/*Continuando... vamos determinar que um caro só será acelerado sem o freio puchado*/
 			if(this.freio == false){
@@ -56,11 +55,7 @@ public class Carro {
 				} else if (this.marcha == 1) {
 					/*Embora a construção feita abaixo, ele só vai deixar acelerar se*/
 					if (marcha < 30){
-						/*com um vaor inteiro determinado ex 20 o método sempre vai receber 20, não vai poder ser outro valor.*/
-						/*método recebendo um parâmetro. valor que passa para o método*/
-						/*Exemplo: eu tenho um objeto porta, para acessar (abrir) o objeto porta a chave é o parâmetro, precisa colocar uma chave.*/
-						/*O this é capaz de tirar a ambiguidade. ele não vai entender que tá recebendo ele mesmo, e sim que tá pegando a velocidade da variável atributo lá em cima*/
-						/*usado para evitar conflito*/
+
 						this.velocidade = /*20*/ velocidade;
 						System.out.println(this.velocidade);
 					}

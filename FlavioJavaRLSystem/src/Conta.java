@@ -5,6 +5,7 @@ public class Conta {
 	//Ajustar o modificador de acesso aos membros da classe. Usar protected para q as classes filhas de conta possam acessa-las exceto outras como a main. Ou seja, quem recebe extends no método. 
 	/*public*/ /*private*/ protected double saldo; //só poderá ser alterado pelos métodos sacar e depositar
 	public int conta;
+	public String nome; ////pode declarar um atributo com classe String
 	
 	//métodos
 	//colocar valor nos atributos
@@ -15,11 +16,16 @@ public class Conta {
 		
 		//Aplicando regra para o sacar após aplicar a regra de desconto por saque
 		//apenas com essa condição no método sacar ele não vai conseguir sacar um valor maior do que o seu saldo e vai continuar com o mesmo valor no retorno
-			if (this.saldo >= valor){
+		//Como o meu if executa uma única linha de código, eu posso não usar as chaves
+			if (this.saldo >= valor)/*{*/
 				this.saldo -= valor;
 //				this.saldo -= 1;
 				//this.juro(); //acessando o método do juro
-			}
+				///tratando retorno A.5
+//			/*}*/  /*{*/
+				else
+				System.out.println("Não Possui Saldo.");
+			/*}*/
 		
 		//simplificando
 		//this.saldo -= valor;
@@ -30,6 +36,10 @@ public class Conta {
 	
 	public void depositar(double valor){
 		this.saldo += valor;
+		///this é da classe, e o valor já está dentro do método
+		if(valor == 100/*> 99*/){
+			System.out.println("Você foi sorteado!");
+		}
 	}
 	//feito esses 2 métodos, agora vou testar estanciando ela na classe main
 	//encapsulado o saldo:
