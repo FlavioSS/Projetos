@@ -48,6 +48,26 @@ public class Main {
 		Carro ix35 = new Carro();
 		//ix35.desligar();
 		
+		//instanciando classe ContaCorrente após construída
+		ContaCorrente c = new ContaCorrente();
+		//recebe:
+		c.depositar(100);
+		//c.saldo -= 50; sempre 50 e não vai funcionar a regra mesmo encapsulando
+		c.sacar(50);
+		//abaixo é um problema lógico, eu não posso mecher direto no saldo. Tornar atributo private encapsulado. Mas também não poderei mostrar em tela.
+		/*c.saldo = 5000;*/
+		//mostrar na tela
+		/*System.out.println(c.saldo);*/
+		//após colocar segurança no atributo saldo e encapsular:
+		//c.juro //não precisa no main, só tem utilidade na classe em que estão sendo declarado
+		c.verSaldo();
+		
+		ContaPoupanca p = new ContaPoupanca();
+		p.depositar(100);
+		
+		p.sacar(50);
+		p.verSaldo();
+		
 	}
-	
+		
 }
