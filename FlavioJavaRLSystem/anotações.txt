@@ -1,0 +1,19 @@
+﻿Aula 6
+
+
+Pacotes
+Organizar as classes
+
+
+exs: Layouts, Banco, Util (ImportPDF)
+
+src>newpackage>
+a sun recomenda q o domínio do pacote seja o dominio da empresa de traz pra frente
+
+não mudar pacote diretamente na linha de código, pois ele não vai mudar a pasta!!
+arrasta e solta!! no painel
+
+
+usar import para enxergar a classe fora do pacote ao qual quer herdar
+
+com protected só vai ficar disponível para a própria classe, aí não adianta só import. E suas classes filhas no mesmo package
