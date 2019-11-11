@@ -48,23 +48,37 @@ public class Main {
          * 
          */
 
+        // aula 8
+        final Calc ca = new Calc();
+        final int Total = /* à esquerda estou atribuindo para uma variável */ca
+                .Somar(1, 10); // exemplo
+        // jogando na variável se torna uma boa prática!! pq está jogando na variável e não retornando
+        // na main já posso exibir
+        System.out.println(10 + Total);
+
+        /* ca.Copyright(); */ // assim vazio está chamando, mas não diz pra que vai usar
+        System.out.println(ca.Copyright()); // assim pra seguir a organização do código;
+        // se o sistema tiver vários idiomas, retornar o valor da soma em pt acoplado direto no syso já dá mau prática
+        // o android não tem println, aí já não pode reaproveitar a classe somar
+        // por isso nunca coloque syso no retorno de um método de classe, use o return e não apenas declare como void.
+
         /// criando uma variável
-         double valor = 100.50;
+        final double valor = 100.50;
 
-         int valor2 = 200;
+        final int valor2 = 200;
 
-         Integer valor3 = 200;
+        final Integer valor3 = 200;
 
-         char txt = 'A';
+        final char txt = 'A';
 
         //// no java não existe String, e sim a classe String. Assim como Integer. (Letra maiúscula) double, int e char
         //// são tipos primitivos.
-         String nome = "Flávio";
+        final String nome = "Flávio";
 
         /// declarando array
         /// tipo do array + nome do array
-         int[] numeros = {1, 2, 3, 4};
-         String[] paises =
+        final int[] numeros = {1, 2, 3, 4};
+        final String[] paises =
                 {"Brasil", "EUA", "Portugal", "Argentina", "Angola"};
 
         /// se chamar uma string sem o array ele vai retornar o número de caracteres que tem em String nome, exemplo:
@@ -80,13 +94,13 @@ public class Main {
         /// como String é uma classe, e classe tem métodos e atributoscomo o length, eu posso fazer a melhoria em i <=
         /// length vai retornar o número dos valores nesse array.
         /// o length conta 0 + 4
-        for ( String paise : paises) {// <= paises.length; i++){//3; i++){
+        for (final String paise : paises) {// <= paises.length; i++){//3; i++){
             // System.out.println(paises[i]); //comentado para testar o outro for
         }
 
         /// como um for each. Varrer um array. declara o tipo do array que vai ler, nome : o array que vai ler. Vai
         /// declarar cada pais à variável pais;
-        for ( String pais : paises) {
+        for (final String pais : paises) {
             System.out.println(pais);
         }
 
@@ -105,11 +119,14 @@ public class Main {
         /// posição do array começa em 0
         System.out.println(numeros[2]);
         // instanciando classe ContaCorrente após construída
-         ContaCorrente c = new ContaCorrente();
+        final ContaCorrente c = new ContaCorrente();
         // recebe:
         c.depositar(valor);// 100);
         // c.saldo -= 50; sempre 50 e não vai funcionar a regra mesmo encapsulando
-        c.sacar(50);
+        // AULA 8
+        c.sacar(50);// aqui chama o double (overloading)
+        // c.sacar();// aqui chama o sem parâmetro (overloading)
+        c.sacar(50, "123");// aqui chama o sem parâmetro (overloading) chamando os 2 métodos.
         // abaixo é um problema lógico, eu não posso mecher direto no saldo. Tornar atributo private encapsulado. Mas
         // também não poderei mostrar em tela.
         /* c.saldo = 5000; */
@@ -118,6 +135,13 @@ public class Main {
         // após colocar segurança no atributo saldo e encapsular:
         // c.juro //não precisa no main, só tem utilidade na classe em que estão sendo declarado
         c.verSaldo();
+
+        // aula 8
+        // Procedimentos p = new Procedimentos(); //estanciar um objeto pra depois chamar ele, pq ele é uma classe.
+        // p.Escrever("TESTE"); //chamar
+        Procedimentos.Escrever("TESTE"); // aqui escrever é um método estático, já que não pode ser estanciado. escreve
+                                         // mais direto. Não pertence ao objeto.
+        // se estanciar após a aplica
 
         // C4 c = new C4(); //teste
         // c.velocidade //não vai enxergar por está protected
