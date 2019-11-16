@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 //import br.com.rlsystem.carros.C4; //teste
 
 public class Main {
@@ -47,11 +49,10 @@ public class Main {
          * //ix35.desligar();
          * 
          */
-
-        // aula 8
-        final Calc ca = new Calc();
-        final int Total = /* à esquerda estou atribuindo para uma variável */ca
-                .Somar(1, 10); // exemplo
+    	
+    	// aula 8
+        Calc ca = new Calc();
+        int Total = /* à esquerda estou atribuindo para uma variável */ca.Somar(1, 10); // exemplo
         // jogando na variável se torna uma boa prática!! pq está jogando na variável e não retornando
         // na main já posso exibir
         System.out.println(10 + Total);
@@ -62,23 +63,24 @@ public class Main {
         // o android não tem println, aí já não pode reaproveitar a classe somar
         // por isso nunca coloque syso no retorno de um método de classe, use o return e não apenas declare como void.
 
+
         /// criando uma variável
-        final double valor = 100.50;
+         double valor = 100.50;
 
-        final int valor2 = 200;
+         int valor2 = 200;
 
-        final Integer valor3 = 200;
+         Integer valor3 = 200;
 
-        final char txt = 'A';
+         char txt = 'A';
 
         //// no java não existe String, e sim a classe String. Assim como Integer. (Letra maiúscula) double, int e char
         //// são tipos primitivos.
-        final String nome = "Flávio";
+         String nome = "Flávio";
 
         /// declarando array
         /// tipo do array + nome do array
-        final int[] numeros = {1, 2, 3, 4};
-        final String[] paises =
+         int[] numeros = {1, 2, 3, 4};
+         String[] paises =
                 {"Brasil", "EUA", "Portugal", "Argentina", "Angola"};
 
         /// se chamar uma string sem o array ele vai retornar o número de caracteres que tem em String nome, exemplo:
@@ -94,13 +96,13 @@ public class Main {
         /// como String é uma classe, e classe tem métodos e atributoscomo o length, eu posso fazer a melhoria em i <=
         /// length vai retornar o número dos valores nesse array.
         /// o length conta 0 + 4
-        for (final String paise : paises) {// <= paises.length; i++){//3; i++){
+        for ( String pais : paises) {// <= paises.length; i++){//3; i++){
             // System.out.println(paises[i]); //comentado para testar o outro for
         }
 
         /// como um for each. Varrer um array. declara o tipo do array que vai ler, nome : o array que vai ler. Vai
         /// declarar cada pais à variável pais;
-        for (final String pais : paises) {
+        for ( String pais : paises) {
             System.out.println(pais);
         }
 
@@ -119,14 +121,11 @@ public class Main {
         /// posição do array começa em 0
         System.out.println(numeros[2]);
         // instanciando classe ContaCorrente após construída
-        final ContaCorrente c = new ContaCorrente();
+         ContaCorrente c = new ContaCorrente();
         // recebe:
         c.depositar(valor);// 100);
         // c.saldo -= 50; sempre 50 e não vai funcionar a regra mesmo encapsulando
-        // AULA 8
-        c.sacar(50);// aqui chama o double (overloading)
-        // c.sacar();// aqui chama o sem parâmetro (overloading)
-        c.sacar(50, "123");// aqui chama o sem parâmetro (overloading) chamando os 2 métodos.
+        c.sacar(50);
         // abaixo é um problema lógico, eu não posso mecher direto no saldo. Tornar atributo private encapsulado. Mas
         // também não poderei mostrar em tela.
         /* c.saldo = 5000; */
@@ -135,17 +134,77 @@ public class Main {
         // após colocar segurança no atributo saldo e encapsular:
         // c.juro //não precisa no main, só tem utilidade na classe em que estão sendo declarado
         c.verSaldo();
-
+        
+        //A classe conta não pode ser instanciada pois ela não faz sentido dentro do sistema para o main. Apenas como escopo para as classes filhas
+        //Não faz lógica
+        //Conta ccc = new Conta();
+        
         // aula 8
         // Procedimentos p = new Procedimentos(); //estanciar um objeto pra depois chamar ele, pq ele é uma classe.
         // p.Escrever("TESTE"); //chamar
         Procedimentos.Escrever("TESTE"); // aqui escrever é um método estático, já que não pode ser estanciado. escreve
                                          // mais direto. Não pertence ao objeto.
         // se estanciar após a aplica
-
+        
         // C4 c = new C4(); //teste
         // c.velocidade //não vai enxergar por está protected
+        
+     // daí pra cima comenta tudo pra testar o código abaixo
+        // swing do java interface gráfica
+        String acao = JOptionPane.showInputDialog("Digite o Tipo de Conta");
+        // o objeto conta não existe pois é só um objeto que não recebe instancia de nenhuma classe, objeto nulo
+        Conta conta;
 
+        // Comparando valores que não seja tipo primitivo (String) usa o método equals!!!
+        // De acordo com a ação que escolher ele vai atribuir a instância correta.
+        // Ele não é do tipo conta, é do tipo que ele recebe (Aqui no caso só em tempo de execução); Aqui temos um
+        // polimorfismo
+        // instanciar x ou y desde que tenha o mesmo tipo. (na escolha em tela). sempre vai haver depositar, sacar e
+        // saldo por exemplo.
+        if (acao.equals("c")) {
+            conta = new ContaCorrente();
+        } else {
+            conta = new ContaPoupanca();
+        }
+
+        conta.depositar(500);
+        conta.sacar(0);
+        conta.verSaldo(); //6:16
+        
+        /*MySQL m = new MySQL();
+        m.conectar();
+        m.desconectar();*/
+        /*Oracle o = new Oracle();
+        o.conectar();
+        o.desconectar();*/
+        IDb idb;
+        
+        String servidor = JOptionPane.showInputDialog("Digite o tipo de banco");
+        
+        if(servidor.equals("m")){
+        	idb = new MySQL();
+        } else {
+        	idb = new Oracle();
+        }
+        
+        /*
+         idb.conectar();
+         idb.desconectar();
+         */
+        
+        String status = JOptionPane.showInputDialog("Deseja desconectar? s ou n");
+        
+        if(status.equals("s")){
+        	idb.desconectar();
+        	System.out.println("Sua conexão foi encerrada");
+        }else{
+        	idb.conectar();
+        	System.out.println("Sessão retomada");
+        }
+        
+        
+        
+        
         /*
          * ContaPoupanca p = new ContaPoupanca(); p.depositar(100);
          * 

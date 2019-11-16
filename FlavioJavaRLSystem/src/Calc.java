@@ -1,6 +1,6 @@
 
 public class Calc {
-    // recebe a + b
+	 // recebe a + b
     // usar printLN dentro dos métodos é uma má prática
     // o método void só deve ser usado se ele não for retornar nada
     // no caso abaixo retorna a soma
@@ -28,6 +28,4 @@ public class Calc {
     // o syso é um exemplo
     // chamar vários datatype sem ter que fazer várias declarações. Como um método com nome diferente pra cada coisa a
     // exibir
-    // 6:34segs de vídeo
-
 }
