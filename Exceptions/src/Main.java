@@ -1,23 +1,22 @@
-import java.io.File;
 import java.io.FileNotFoundException; //vem de java.lang.Exception
-import java.io.FileReader;
 
-public class Main {
+//comentando tudo isso para a aula 3
+/*public class Main {
 
     public static void main(String[] args)
-            throws FileNotFoundException /* throws FileNotFoundException */ {
+            throws FileNotFoundException  throws FileNotFoundException  {
         System.out.println("Curso de Java!! FSS");
-        /*
-         * // apagar o final File file = new File("C:\\teste.txt"); //recebe compo parâmetro um objeto do tipo file
+        
+         * // apagar o  File file = new File("C:\\teste.txt"); //recebe compo parâmetro um objeto do tipo file
          * //quando instancio o file reader, posso gerar uma exceção para tratar de FileNotFound. a ide acompanha.
          * //pois ele invoca um construtor. Essa exceção é checked! //a previsão de erro existe pela possibilidade do
          * arquivo não existir (ser excluído ou renomeado) //lançado o throwns no próprio método para ignorar isso.
          * //após isso o arquivo ainda não existe, a exceção vai devidamente barrar. Como é o main ele vai executar,
          * mas vai dá o errro. FileReader reader = new FileReader(file);
          * 
-         */
+         
         // resolvendo aqui
-        final Main m = new Main();
+         Main m = new Main();
         // com o throws em outro método, vamos resolver aqui nesse o tratamento para o erro.
         // colocando o throws novamente o erro vai está sendo ignorado e novamente passado para outro método resolver.
         m.teste();
@@ -36,10 +35,10 @@ public class Main {
     // nesse projeto vamos trabalhar sempre com as exceções finais como uma boa prática
     public void teste() throws FileNotFoundException {
 
-        // apagar o final
+        // apagar o 
         // se estivéssemos usando banco, ao invés da persistência direto em txt, a exceção seria SQLNotFoundException
         // se for usado JDBC
-        final File file = new File("C:\\teste.txt");
+         File file = new File("C:\\teste.txt");
         // recebe compo parâmetro um objeto do tipo file
         // quando instancio o file reader, posso gerar uma exceção para tratar de FileNotFound. a ide acompanha.
         // pois ele invoca um construtor. Essa exceção é checked!
@@ -47,8 +46,20 @@ public class Main {
         // lançado o throwns no próprio método para ignorar isso.
         // após isso o arquivo ainda não existe, a exceção vai devidamente barrar. Como é o main ele vai executar, mas
         // vai dá o errro.
-        final FileReader reader = new FileReader(file);
+         FileReader reader = new FileReader(file);
 
+    }
+
+}
+*/
+//aula 3
+public class Main {
+
+    public static void main(String[] args)
+            throws FileNotFoundException /* throws FileNotFoundException */ {
+        // ao executar isso aqui diretamente, ele não vai executar, pois tem exceção para tratar na classe clientes.
+        Clientes cliente = new Clientes();
+        cliente.BuscarClientes();
     }
 
 }
