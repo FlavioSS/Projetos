@@ -58,8 +58,9 @@ public class Main {
     public static void main(String[] args)
             throws FileNotFoundException /* throws FileNotFoundException */ {
         // ao executar isso aqui diretamente, ele não vai executar, pois tem exceção para tratar na classe clientes.
-        Clientes cliente = new Clientes();
+        ClientesOLD cliente = new ClientesOLD();
         cliente.BuscarClientes();
+        cliente.Salvar();
     }
 
 }
