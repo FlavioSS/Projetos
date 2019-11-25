@@ -12,22 +12,29 @@ public class Clientes {
 
     protected File getFile() {
         return new File(
-                "C:\\CursoJava\\Projetos\\Exceptions\\data\\clientes.txt"); //mudando nome do txt para teste
+                "C:\\Users\\Flávio\\workspace\\Exceptions\\data\\clientes.txt"); //mudando nome do txt para teste
     }
 
 
-    public void BuscarClientes() {
+    public void BuscarClientes() throws FileNotFoundException, SQLException {
      
         FileReader reader = null; 
         reader = new FileReader(this.getFile());
 
         Connection c = DriverManager.getConnection(""); 
         PreparedStatement pstm = c.prepareStatement("SELECT * FROM");        
-        System.out.println("...Processado");
+        System.out.println("...Processada");
           
     }
 
-    public void Salvar() {
+    public void Salvar() throws IOException, SQLException {
+    	
+        FileWriter writer = null; 
+        writer = new FileWriter(this.getFile());
+
+        Connection c = DriverManager.getConnection(""); 
+        PreparedStatement pstm = c.prepareStatement("SELECT * FROM");        
+        System.out.println("...Salvo");
                  
     }
     //runtimer - erros em tempo de execução - tratamento

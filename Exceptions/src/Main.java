@@ -1,4 +1,6 @@
 import java.io.FileNotFoundException; //vem de java.lang.Exception
+import java.io.IOException;
+import java.sql.SQLException;
 
 //comentando tudo isso para a aula 3
 /*public class Main {
@@ -56,11 +58,26 @@ import java.io.FileNotFoundException; //vem de java.lang.Exception
 public class Main {
 
     public static void main(String[] args)
-            throws FileNotFoundException /* throws FileNotFoundException */ {
+            /*throws SQLException, IOException*/ {
         // ao executar isso aqui diretamente, ele não vai executar, pois tem exceção para tratar na classe clientes.
-        ClientesOLD cliente = new ClientesOLD();
-        cliente.BuscarClientes();
-        cliente.Salvar();
+        /*Clientes clientes = new Clientes();
+        clientes.BuscarClientes();
+        clientes.Salvar();*/
+    	
+    	Clientes clientes = new Clientes();
+    	
+    	try {
+    		clientes.BuscarClientes();
+            clientes.Salvar();
+		} catch (FileNotFoundException e) {
+			System.out.println("!!Arquivo Não Encontrado!!");
+		} catch (IOException e) {
+			System.out.println("!!IOEXCEPTION!!");
+		} catch (SQLException e) {
+			System.out.println("!!ERRO NO BANCO!!");
+		}
+    	
     }
 
 }
+//5:06
