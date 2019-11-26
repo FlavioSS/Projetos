@@ -28,7 +28,7 @@ public class Clientes {
     }
 
     public void Salvar() throws IOException, SQLException {
-    	
+        
         FileWriter writer = null; 
         writer = new FileWriter(this.getFile());
 

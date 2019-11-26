@@ -1,6 +1,4 @@
-import java.io.FileNotFoundException; //vem de java.lang.Exception
-import java.io.IOException;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
 //comentando tudo isso para a aula 3
 /*public class Main {
@@ -58,25 +56,51 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String[] args)
-            /*throws SQLException, IOException*/ {
-        // ao executar isso aqui diretamente, ele não vai executar, pois tem exceção para tratar na classe clientes.
-        /*Clientes clientes = new Clientes();
-        clientes.BuscarClientes();
-        clientes.Salvar();*/
-    	
-    	Clientes clientes = new Clientes();
-    	
-    	try {
-    		clientes.BuscarClientes();
-            clientes.Salvar();
-		} catch (FileNotFoundException e) {
-			System.out.println("!!Arquivo Não Encontrado!!");
-		} catch (IOException e) {
-			System.out.println("!!IOEXCEPTION!!");
-		} catch (SQLException e) {
-			System.out.println("!!ERRO NO BANCO!!");
-		}
-    	
+    /* throws SQLException, IOException */ {
+        /*
+         * COMENTANDO PARA A AULA 6 DE UNCHECKEDS // ao executar isso aqui diretamente, ele não vai executar, pois tem
+         * exceção para tratar na classe clientes. Clientes clientes = new Clientes(); clientes.BuscarClientes();
+         * clientes.Salvar();
+         * 
+         * Clientes clientes = new Clientes();
+         * 
+         * try { clientes.BuscarClientes(); clientes.Salvar(); } catch (FileNotFoundException e) {
+         * System.out.println("!!Arquivo Não Encontrado!!"); } catch (IOException e) {
+         * System.out.println("!!IOEXCEPTION!!"); } catch (SQLException e) { System.out.println("!!ERRO NO BANCO!!"); }
+         */
+
+        // UNCKECKEDS
+        try {
+            Calculadora calc = new Calculadora();
+            System.out.println(calc.dividir(30435, 12));
+            // aqui gera uma exceção unckecked que muito provavelmente só vai aparecer em tempo de execução.
+            // AritmethicExcepiotn,
+            // Posso tratar ou não. Mas se a regra de negócios é financeiras, e não são valores manuais,iremos tratar.
+            // A depender da regra de negócio e ou lógica.
+            //System.out.println(calc.dividir(30435, 0));
+            System.out.println(calc.parcela(99));
+        } catch (ArithmeticException ae) {
+            System.out.println(ae.getMessage());
+        } catch (IllegalArgumentException ie) {
+            System.out.println(ie.getMessage());
+        }
+        
+        ArrayList<String> lista = new ArrayList<String>();
+        lista.add("JAVA");
+        lista.add("SQL");
+        lista.add("PHP");
+        lista.add("javaScript");
+        lista.add("Mobile");
+        //exibindo o valor do array:
+        //começa na posição 0, se colocar uma posição além do que tem no array, vai dá a unchecked IndexOutBoundsException
+        
+        try {
+            System.out.println(lista.get(5));
+        } catch (IndexOutOfBoundsException ie) {
+            System.out.println(ie.getMessage());
+        }
+        
+
     }
 
 }
